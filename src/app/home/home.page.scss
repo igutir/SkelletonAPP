@@ -25,3 +25,31 @@
 #container a {
   text-decoration: none;
 }
+
+.welcome-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-form{
+    max-width: 300px;
+}
+
+.button-padding{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.copyright{
+    padding-left: 10px;
+}

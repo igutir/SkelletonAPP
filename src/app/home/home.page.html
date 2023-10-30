@@ -1,20 +1,79 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Skelleton APP</ion-title>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Blank</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <div class="ion-padding">
+        <ion-list class="welcome-card ">
+            <ion-item>
+                <h1>¡Bienvenido!</h1>
+            </ion-item>
+            <ion-item>
+                <h4>Usuario: {{ data.username }}</h4>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="ion-padding">
+        <ion-list class="welcome-card ">
+            <ion-item>
+                <h1>Informacion Adicional:</h1>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="form-container">
+        <mat-form-field class="home-form">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Ingrese Nombre" [(ngModel)]="loggedUser.nombre">
+        </mat-form-field>
+
+        <mat-form-field class="home-form">
+            <mat-label>Apellido</mat-label>
+            <input matInput placeholder="Ingrese Apellido" [(ngModel)]="loggedUser.apellido">
+        </mat-form-field>
+
+        <mat-form-field class="home-form">
+            <mat-label>Nivel educacional: </mat-label>
+            <mat-select>
+                <mat-option *ngFor="let nivel of nivel_educacional" [value]="nivel">
+                    {{ nivel }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="home-form">
+            <mat-label>Fecha nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+
+    <ion-row class="ion-justify-content-evenly">
+        <button class="button-padding" mat-raised-button>Limpiar</button>
+        <button type="reset" class="button-padding" mat-raised-button color="accent">Mostrar</button>
+    </ion-row>
+
+<ion-footer [translucent]="true">
+    <ion-toolbar>
+        <h5 class="copyright">© SkelletonAPP Todos los derechos reservados</h5>
+    </ion-toolbar>
+</ion-footer>
