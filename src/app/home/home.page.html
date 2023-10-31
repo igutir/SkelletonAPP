@@ -51,7 +51,7 @@
         <mat-form-field class="home-form">
             <mat-label>Nivel educacional: </mat-label>
             <mat-select>
-                <mat-option *ngFor="let nivel of nivel_educacional" [value]="nivel">
+                <mat-option *ngFor="let nivel of nivel_educacional" [value]="nivel" (click)="setNivelEd(nivel)">
                     {{ nivel }}
                 </mat-option>
             </mat-select>
@@ -59,7 +59,7 @@
 
         <mat-form-field class="home-form">
             <mat-label>Fecha nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="loggedUser.fecha_nacimiento">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -69,7 +69,7 @@
 
     <ion-row class="ion-justify-content-evenly">
         <button class="button-padding" mat-raised-button>Limpiar</button>
-        <button type="reset" class="button-padding" mat-raised-button color="accent">Mostrar</button>
+        <button type="reset" class="button-padding" mat-raised-button color="accent" (click)="mostrarDatos()">Mostrar</button>
     </ion-row>
 
 <ion-footer [translucent]="true">
